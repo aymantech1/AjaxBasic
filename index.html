@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Ajax</title>
+	</head>
+	<body>
+		<div id="demo"><h2>Let AJAX change this text</h2></div>
+		<button type="button" onclick="loadtex()">Change Content</button>
+
+		<script>
+		function loadtex() 
+		{
+			var xhttp;
+			if (window.XMLHttpRequest) 
+			{
+		    	xhttp = new XMLHttpRequest();
+			} 
+			else 
+			{
+			    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xhttp.onreadystatechange = function() 
+			{
+	  			if (xhttp.readyState == 4 && xhttp.status == 200) 
+	  			{
+	    			document.getElementById("demo").innerHTML = xhttp.responseText;
+	  			}
+	  		};
+			xhttp.open("GET", "rakib.txt", true);
+			xhttp.send();
+		}
+		</script>
+	</body>
+</html>
